@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+  background-color: lightblue;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  margin: 50px auto;
+  min-width: 320px;
+  max-width: 480px;
+}
+
+.salesboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #201a23;
+  width: 100%;
+  border-radius: 10px;
+}
+
+img {
+  width: 50%;
+  border-radius: 50%;
+  border: 5px solid #44354a;
+  margin-bottom: 1em;
+}
+
+.sales-selectors {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+}
+
+.star,
+.fire {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9e4770;
+  width: 40%;
+  min-width: 100px;
+  height: 40px;
+  font-size: 1.4rem;
+  border-radius: 20px;
+}
+
+.star {
+  margin-bottom: 0.45em;
+}
+
+.live-sales,
+.live-achievements {
+  width: 90%;
+}
+
+.sales-icons,
+.achievements-icons,
+.revenue-amount,
+.commission-amount {
+  background: #44354a;
+  width: 100%;
+  padding: 0.5em 0;
+  border-radius: 20px;
+}
+
+.dollar-amounts {
+    width: 90%;
+    margin-bottom: 1.5em;
+}
+
+@media (min-width: 480px) {
+  .sales-selectors {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .star,
+  .fire {
+    min-width: 150px;
+  }
+
+  .star {
+    margin: 0;
+  }
+
+  .fire {
+    margin-left: 0.25em;
+  }
+
+  .dollar-amounts {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .revenue,
+  .commission {
+    width: 47%;
+  }
+}
