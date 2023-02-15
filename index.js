@@ -37,12 +37,12 @@ function addProduct(product) {
       achievementsArray.push(bell);
       achievementIcons.textContent = achievementsArray.join("");
     }
-    salesIconsArray.push(product.emoji);
+    salesIconsArray.unshift(product.emoji);
     salesIcons.textContent = salesIconsArray.join("");
     totalRev += product.revenue;
     totalCom += product.commission;
-    revenueAmount.textContent = `$${totalRev}`;
-    commissionAmount.textContent = `$${totalCom}`;
+    revenueAmount.textContent = `$${totalRev.toLocaleString()}`;
+    commissionAmount.textContent = `$${totalCom.toLocaleString()}`;
   
     if (totalRev >= 2500 && achievementsArray.length < 2) {
       achievementsArray.push(bag);
