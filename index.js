@@ -9,6 +9,7 @@ const commissionAmount = document.getElementById("commission-amount");
 const salesSelectors = document.getElementById("sales-selectors");
 const salesNum = document.getElementById("number-sales");
 const achievementsNum = document.getElementById("number-achievements");
+const lightModeBtn = document.getElementById("light-mode-btn")
 
 // Product A info
 let productA = {
@@ -29,8 +30,10 @@ let achievementsArray = [];
 let bell = "🔔";
 let bag = "💰";
 let trophy = "🏆";
+let eight = "🎖️"
 let totalRev = 0;
 let totalCom = 0;
+let revenueMet = false;
 
 function addProduct(product) {
     if (achievementsArray.length === 0) {
@@ -44,12 +47,18 @@ function addProduct(product) {
     revenueAmount.textContent = `$${totalRev.toLocaleString()}`;
     commissionAmount.textContent = `$${totalCom.toLocaleString()}`;
   
-    if (totalRev >= 2500 && achievementsArray.length < 2) {
+    if (salesIconsArray.length === 8) {
+      achievementsArray.push(eight)
+      achievementIcons.textContent = achievementsArray.join("")
+    }
+
+    if (totalRev >= 2500 && !revenueMet) {
       achievementsArray.push(bag);
       achievementIcons.textContent = achievementsArray.join("");
+      revenueMet = true;
     }
   
-    if (salesIconsArray.length >= 15 && achievementsArray.length < 3) {
+    if (salesIconsArray.length === 15) {
       achievementsArray.push(trophy);
       achievementIcons.textContent = achievementsArray.join("");
     }
@@ -63,3 +72,21 @@ starBtn.addEventListener("click", function() {
 fireBtn.addEventListener("click", function() {
     addProduct(productB)
 });
+
+lightModeBtn.addEventListener("click", function() {
+  document.getElementById('salesboard').classList.toggle('light-mode')
+  revenueAmount.classList.toggle('light-text')
+  commissionAmount.classList.toggle('light-text')
+  salesIcons.classList.toggle('light-grey')
+  achievementIcons.classList.toggle('light-grey')
+  starBtn.classList.toggle('light-purple')
+  fireBtn.classList.toggle('light-purple')
+  console.log('click')
+  if (lightModeBtn.textContent === 'Light Mode') {
+    lightModeBtn.textContent = 'Dark Mode'
+    lightModeBtn.classList.add('light-purple')
+  } else {
+    lightModeBtn.textContent = 'Light Mode'
+    lightModeBtn.classList.remove('light-purple')
+  }
+})

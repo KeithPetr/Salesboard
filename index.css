@@ -30,6 +30,31 @@ body {
   border-radius: 10px;
 }
 
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.light-mode-btn {
+  margin-left: 1em;
+  margin-right: .5em;
+  padding: 0.8em 1.25em;
+  border-radius: 20px;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.light-mode-btn:hover {
+  cursor: pointer;
+}
+
+.light-mode-btn:active {
+  transform: translateY(2px);
+}
+
 img {
   width: 50%;
   border-radius: 50%;
@@ -56,6 +81,7 @@ img {
   font-size: 1.4rem;
   border-radius: 20px;
   border: none;
+  text-shadow:  0 0 1px black;
 }
 
 .star:hover,
@@ -84,8 +110,9 @@ img {
   background: #44354a;
   width: 100%;
   height: 40px;
-  padding: 0.5em .5em 0 .75em;
+  padding: 0.5em 0.5em 0 0.75em;
   border-radius: 20px;
+  text-shadow:  0 0 1px black;
 }
 
 .achievements-icons,
@@ -96,11 +123,31 @@ img {
   height: 40px;
   padding: 0.5em 0;
   border-radius: 20px;
+  text-shadow:  0 0 1px black;
 }
 
 .dollar-amounts {
   width: 90%;
   margin-bottom: 1.5em;
+}
+
+/* ----- Light Mode ----- */
+
+.light-mode {
+  background: #f2f2f2;
+  color: black;
+}
+
+.light-text {
+  background: lightgrey
+}
+
+.light-grey {
+  background: lightgray;
+}
+
+.light-purple {
+  background: rgb(154, 130, 162);
 }
 
 @media (min-width: 480px) {
