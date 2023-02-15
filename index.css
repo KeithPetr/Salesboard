@@ -206,4 +206,13 @@ button {
     flex-direction: row;
     justify-content: space-around;
   }
+
+  .header {
+    justify-content: flex-end;
+  
+  }
+
+  .title {
+    margin-right: 1.5em;
+  }
 }
