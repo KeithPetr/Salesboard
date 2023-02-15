@@ -35,12 +35,13 @@ body {
   justify-content: flex-end;
   align-items: center;
   width: 100%;
+  font-size: .8rem;
 }
 
 .light-mode-btn {
   margin-left: 1em;
   margin-right: .5em;
-  padding: 0.8em 1.25em;
+  padding: 0.2em .5em;
   border-radius: 20px;
   border: none;
   font-family: "Poppins", sans-serif;
@@ -133,17 +134,22 @@ img {
 
 .local-storage {
   display: flex;
-  width: 90%;
-  justify-content: space-around;
+  width: 60%;
+  flex-direction: column;
 }
 
 .save-data-btn, .reset-storage-btn, .reset-display-btn {
-  margin-bottom: .75em;
-  padding: 0.8em 1.25em;
+  margin: 0 0 .75em 0;
+  padding: 0.7em .8em;
   border-radius: 20px;
   border: none;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
+  max-width: 210px;
+}
+
+button {
+  font-size: .8rem;
 }
 
 /* ----- Light Mode ----- */
@@ -192,5 +198,12 @@ img {
   .revenue,
   .commission {
     width: 47%;
+  }
+
+  .local-storage {
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-around;
   }
 }
