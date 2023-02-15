@@ -131,6 +131,21 @@ img {
   margin-bottom: 1.5em;
 }
 
+.local-storage {
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.save-data-btn, .reset-storage-btn, .reset-display-btn {
+  margin-bottom: .75em;
+  padding: 0.8em 1.25em;
+  border-radius: 20px;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
 /* ----- Light Mode ----- */
 
 .light-mode {
