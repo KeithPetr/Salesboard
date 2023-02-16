@@ -39,6 +39,9 @@ let totalRev = 0;
 let totalCom = 0;
 let revenueMet = false;
 
+// the below function updates the users display by taking in either the star or fire 
+// product objects as a parameter and then using that information to update the elements
+// within the app using dot notation to access each product object
 function addProduct(product) {
   if (achievementsArray.length === 0) {
     achievementsArray.push(bell);
@@ -102,6 +105,7 @@ lightModeBtn.addEventListener("click", function () {
 });
 
 // ----- Clearing Displays and Local Storage -----
+// The below function resets the sales on the users display
 
 function resetData() {
   revenueAmount.textContent = "";
@@ -114,10 +118,17 @@ function resetData() {
   achievementsNum.textContent = "";
 }
 
+// the below function clears all the saved data in localStorage
+
 function resetStorage() {
   window.localStorage.clear();
 }
 
+// The below function first looks into localStorage to see if there is any data.
+// If not, it saves the current sessionArray to localStorage.
+// If there is data, the function gets that array for local storage, uses the spread
+// operator to push the new items to the existing array in localStorage, then sets a
+// new array in localStorage with the newly added data
 function saveData() {
   const currentData = JSON.parse(localStorage.getItem("salesIconsArray"));
   if (currentData === null) {
@@ -133,10 +144,13 @@ function saveData() {
   sessionArray = [];
 }
 
+
 document
   .getElementById("reset-display-btn")
   .addEventListener("click", resetData);
+
 document
   .getElementById("reset-storage-btn")
   .addEventListener("click", resetStorage);
+
 document.getElementById("save-data-btn").addEventListener("click", saveData);
