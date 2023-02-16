@@ -110,6 +110,9 @@ lightModeBtn.addEventListener("click", function () {
 function resetData() {
   revenueAmount.textContent = "";
   commissionAmount.textContent = "";
+  totalRev = 0;
+  totalCom = 0;
+  revenueMet = false;
   salesIconsArray = [];
   achievementsArray = [];
   salesIcons.textContent = "";
