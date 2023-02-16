@@ -30,6 +30,7 @@ let productB = {
 
 let salesIconsArray = [];
 let achievementsArray = [];
+let sessionArray = [];
 let bell = "🔔";
 let bag = "💰";
 let trophy = "🏆";
@@ -44,6 +45,7 @@ function addProduct(product) {
     achievementIcons.textContent = achievementsArray.join("");
   }
   salesIconsArray.unshift(product.emoji);
+  sessionArray.unshift(product.emoji);
   salesIcons.textContent = salesIconsArray.join("");
   totalRev += product.revenue;
   totalCom += product.commission;
@@ -92,10 +94,10 @@ lightModeBtn.addEventListener("click", function () {
   console.log("click");
   if (lightModeBtn.textContent == "Light Mode") {
     lightModeBtn.textContent = "Dark Mode";
-    lightModeBtn.classList.add("light-purple");
+    lightModeBtn.classList.remove("light-purple");
   } else {
     lightModeBtn.textContent = "Light Mode";
-    lightModeBtn.classList.remove("light-purple");
+    lightModeBtn.classList.add("light-purple");
   }
 });
 
@@ -117,7 +119,18 @@ function resetStorage() {
 }
 
 function saveData() {
-  localStorage.setItem("salesIconsArray", JSON.stringify(salesIconsArray));
+  const currentData = JSON.parse(localStorage.getItem("salesIconsArray"));
+  if (currentData === null) {
+    localStorage.setItem("salesIconsArray", JSON.stringify(salesIconsArray));
+    sessionArray = [];
+    return;
+  }
+  console.log("BeforeARR" , sessionArray)
+  console.log(currentData)
+  sessionArray.push(...currentData);
+  console.log("AfterARR", sessionArray);
+  localStorage.setItem("salesIconsArray", JSON.stringify(sessionArray));
+  sessionArray = [];
 }
 
 document
@@ -126,6 +139,4 @@ document
 document
   .getElementById("reset-storage-btn")
   .addEventListener("click", resetStorage);
-document
-  .getElementById("save-data-btn")
-  .addEventListener("click", saveData);
+document.getElementById("save-data-btn").addEventListener("click", saveData);
